@@ -6,8 +6,30 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+    <RelativeLayout
+            android:id="@+id/layout_top"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <Button
+                android:id="@+id/btn_delete_data"
+                android:text="삭제"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <Button
+                android:id="@+id/btn_add_data"
+                android:text="추가"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/layout_recycler_view"
+            android:layout_below="@id/layout_top"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

@@ -1,5 +1,6 @@
 package com.example.recyclerrealm
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,18 +10,21 @@ class MainActivity : AppCompatActivity() {
 
     // 데이터 하드코딩
     private var unitList = arrayListOf<MeasureUnit>(
-        MeasureUnit("cc", "씨씨"),
-        MeasureUnit("ml", "밀리미터"),
-        MeasureUnit("L", "리터"),
-        MeasureUnit("mg", "밀리그램"),
-        MeasureUnit("kg", "킬로그램"),
-        MeasureUnit("큰술", "tbsp"),
-        MeasureUnit("작은술", "tsp"),
-        MeasureUnit("컵", "cup"),
-        MeasureUnit("밥숟갈", "15cc"),
-        MeasureUnit("베라스푼", "5cc"),
-        MeasureUnit("물뚜껑", "7cc"),
-        MeasureUnit("소주잔", "50ml")
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0),
+        MeasureUnit(0, 0, 0, "cc", "씨씨", "cc", 0)
+
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +39,11 @@ class MainActivity : AppCompatActivity() {
 
         // 리사이클러뷰 사이즈 고정
         layout_recycler_view.setHasFixedSize(true)
+
+        btn_add_data.setOnClickListener {
+            val intent = Intent(this, EditActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }
