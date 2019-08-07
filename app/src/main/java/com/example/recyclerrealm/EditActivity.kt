@@ -36,7 +36,7 @@ class EditActivity : AppCompatActivity() {
 
         val newItem = realm.createObject<MeasureUnit>(nextId())
         newItem.unitNameBold = edit_txt_name_bold.text.toString()
-        newItem.unitNameSoft = edit_txt_name_bold.text.toString()
+        newItem.unitNameSoft = edit_txt_name_soft.text.toString()
 
         realm.commitTransaction()
     }
