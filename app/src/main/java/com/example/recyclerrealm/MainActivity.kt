@@ -3,7 +3,6 @@ package com.example.recyclerrealm
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.realm.Realm
 import io.realm.Sort
@@ -36,12 +35,14 @@ class MainActivity : AppCompatActivity() {
 
         // 데이터 추가 화면으로 이동 EditActivity
         btn_add_data.setOnClickListener {
+            saveToggleStatus()
             val intent = Intent(this, EditActivity::class.java)
             startActivity(intent)
         }
 
         // 체크박스 선택된 아이템 삭제
         btn_delete_data.setOnClickListener {
+            saveToggleStatus()
             realm.beginTransaction()
 
             for (item in checkList) {
@@ -57,6 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         // 체크박스 선택된 아이템 지정된 문자열로 수정
         btn_edit_data.setOnClickListener {
+            saveToggleStatus()
             realm.beginTransaction()
 
             for (item in checkList) {
@@ -71,6 +73,26 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+
+
+    }
+    private fun saveToggleStatus() {
+        realm.beginTransaction()
+
+        for (item in toggleList) {
+            val updateItem = realm.where<MeasureUnit>().equalTo("unitId", item).findFirst()!!
+            updateItem.unitStatus = 1
+        }
+        for (item in notToggleList) {
+            val updateItem = realm.where<MeasureUnit>().equalTo("unitId", item).findFirst()!!
+            updateItem.unitStatus = 0
+        }
+
+        toggleList.clear()
+        notToggleList.clear()
+
+
+        realm.commitTransaction()
     }
 
     override fun onDestroy() {

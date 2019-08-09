@@ -9,6 +9,7 @@
     <CheckBox
             android:id="@+id/checkBox_lifeTool_Item"
             android:visibility="visible"
+            android:checked="false"
             android:layout_centerInParent="true"
             android:layout_alignParentStart="true"
             android:layout_marginStart="5dp"
